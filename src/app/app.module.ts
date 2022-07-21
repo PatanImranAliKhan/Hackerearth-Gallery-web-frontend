@@ -15,6 +15,8 @@ import { EditImageComponent } from './components/User/edit-image/edit-image.comp
 import { GetuseruploadsComponent } from './components/User/getuseruploads/getuseruploads.component';
 import { HeaderComponent } from './components/User/header/header.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { HeaderComponent } from './components/User/header/header.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

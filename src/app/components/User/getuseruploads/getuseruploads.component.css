@@ -86,3 +86,20 @@ img {
 {
     float: right;
 }
+
+.paginatorclass
+{
+	padding: 30px 10px;
+	background-color: #fff;
+	width: 35%;
+	height: 50px;
+	border-radius: 20px;
+	margin-left: 35%;
+	margin-bottom: 20px;
+}
+
+pagination-controls
+{
+	margin-bottom: 30px;
+	font-size: 20px;
+}

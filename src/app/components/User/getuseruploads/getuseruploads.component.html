@@ -14,7 +14,7 @@
             </div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="cartdisplay">
-                    <div *ngFor="let image of images">
+                    <div *ngFor="let image of images |  paginate: { id:'paginationid', itemsPerPage: 9, currentPage: page }; let i=index">
                         <div class="card h-100">
                             <div class="deleteimage">
                                 <i class="fa fa-trash" (click)="DeleteImage(image)" aria-hidden="true"></i>
@@ -31,6 +31,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="paginatorclass" *ngIf="showpaginator">
+                    <pagination-controls id="paginationid" class="my-paginator" (pageChange)="page = $event"></pagination-controls>
                 </div>
             </div>
         </div>

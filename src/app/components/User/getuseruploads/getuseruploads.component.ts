@@ -12,6 +12,8 @@ export class GetuseruploadsComponent implements OnInit {
   public images: any=[];
   public email="";
   public search="";
+  public page=1;
+  public showpaginator=false;
   constructor(private router: Router, private imageservice: ImageService) { }
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class GetuseruploadsComponent implements OnInit {
     this.imageservice.getImagesByEmail(this.email)
     .subscribe((resp: any) => {
       this.images=resp;
+      this.showpaginator=true;
       this.ProcessImages();
     },(err) => {
       console.log("Error",err);
