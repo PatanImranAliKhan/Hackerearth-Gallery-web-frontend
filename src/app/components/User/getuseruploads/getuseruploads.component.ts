@@ -11,6 +11,7 @@ export class GetuseruploadsComponent implements OnInit {
 
   public images: any=[];
   public email="";
+  public search="";
   constructor(private router: Router, private imageservice: ImageService) { }
 
   ngOnInit(): void {
@@ -70,6 +71,20 @@ export class GetuseruploadsComponent implements OnInit {
       console.log("Error ",err);
       
     })
+  }
+
+  SearchByData()
+  {
+    if(this.search=="")
+    {
+      this.getUserUploadedImages();
+    }
+    else
+    {
+      this.images=this.images.filter((x: any)=> {
+        return x.ImgName.toLocaleLowerCase().match(this.search.toLocaleLowerCase());
+      })
+    }
   }
 
 }

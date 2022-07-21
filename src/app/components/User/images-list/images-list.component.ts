@@ -11,6 +11,7 @@ export class ImagesListComponent implements OnInit {
 
   public images: any=[];
   public email="";
+  public search = "";
   constructor(private router: Router, private imageservice: ImageService) { }
 
   ngOnInit(): void {
@@ -51,6 +52,20 @@ export class ImagesListComponent implements OnInit {
   ShowOneImage(image: any)
   {
     this.router.navigate([`show/${image._id}`])
+  }
+
+  SearchByData()
+  {
+    if(this.search=="")
+    {
+      this.getAllImages();
+    }
+    else
+    {
+      this.images=this.images.filter((x: any)=> {
+        return x.ImgName.toLocaleLowerCase().match(this.search.toLocaleLowerCase());
+      })
+    }
   }
 
 }
