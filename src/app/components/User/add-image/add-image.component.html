@@ -1,0 +1,36 @@
+<div>
+    <div class="container">
+        <app-header></app-header>
+        <div>
+            <div *ngIf="successmessage" class="alert alert-success" role="alert">
+                {{successmessage}}
+            </div>
+        </div>
+        <div>
+            <div *ngIf="invalidmessage" class="alert alert-danger" role="alert">
+                {{invalidmessage}}
+            </div>
+        </div>
+        <div class="addimageform">
+            <div class="filelogo">
+                <i class="fa fa-file-image-o" style="font-size: 60px;" aria-hidden="true"></i>
+            </div>
+            <h3 class="heading">Add New Image</h3>
+            <form class="main" [formGroup]="imageform" novalidate>
+                <div class="form-group">
+                    <input type="text" formControlName="imageName" class="form-control"  placeholder="Image Name"  required />
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" accept="image/*" (change)="AddImageThatSelected($event)" required />
+                </div>
+                <div class="form-group">
+                    <textarea  rows="5" class="form-control" formControlName="imageDetails" placeholder='Image Details'></textarea>
+                </div>
+                <div *ngIf="invalidmessage">
+                    <small></small>
+                </div>
+                <button class="btn btn-primary" type="submit" (click)="AddDetails()">Add Details</button>
+            </form>
+        </div>
+    </div>
+</div>

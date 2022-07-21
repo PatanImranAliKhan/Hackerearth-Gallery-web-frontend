@@ -1,0 +1,33 @@
+<div>
+    <div class="container">
+        <app-header></app-header>
+        <div class="title">
+            <h3>All User Images</h3>
+        </div>
+        <div class="allcards">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="cartdisplay">
+                    <div *ngFor="let image of images">
+                        <div class="card h-100">
+                            <img class="card-img-top" src={{image.ImgUrl}}>
+                            <div class="card-body">
+                                <h5 class="card-title">{{image["ImgName"]}}</h5>
+                                <p class="card-text">{{image["ImgDetails"]}}</p>
+                            </div>
+                            <!-- {{image | json}} -->
+                            <div style="margin: 0px 10px 20px 20px">
+                                <button class="btn btn-primary navigat" (click)="ShowOneImage(image)">View Image</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!images.length">
+            <div class="jumbotron" style="width: 80%;margin: auto;height: 200px;background-color: rgb(230, 237, 242);padding: 75px 50px">
+                <h2>No users have uploaded Images</h2>
+            </div>
+        </div>
+
+    </div>
+</div>

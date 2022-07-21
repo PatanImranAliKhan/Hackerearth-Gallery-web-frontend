@@ -1,0 +1,26 @@
+<div class="main">
+    <div class="container">
+        <div class="formdetails">
+            <div class="label">
+                <p>Add Email</p>
+            </div>
+            <form [formGroup]="detailsform" novalidate>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <input type="email" (blur)="ValidateEmail()" class="input" name="email" placeholder="Email"
+                            formControlName="email" required>
+                    </div>
+                    <div>
+                        <span *ngIf="invalidemail">
+                            <small style="color: rgb(241, 76, 76); margin-left: 30px; margin-top: -20px;">{{invalidemailtext}}</small>
+                        </span>
+                    </div>
+                </div>
+                <button class="submitbutton" (click)="Submit()">Go to Web</button>
+            </form>
+        </div>
+    </div>
+</div>
